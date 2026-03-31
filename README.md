@@ -1,73 +1,133 @@
-# React + TypeScript + Vite
+# 🧙‍♂️ WickedCMS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**WickedCMS** is a lightweight, theme-driven content management system built for developers who want structure, speed, and control — without unnecessary complexity.
 
-Currently, two official plugins are available:
+> A CMS where design is constrained on purpose — to produce better results, faster.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📸 Preview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+> COMING SOON!
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚧 Status
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Early-stage development — not production-ready**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+WickedCMS is currently focused on exploring a **theme-first architecture**. Expect breaking changes as the system evolves.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## ✨ Core Idea
+
+Most CMS platforms give you too much freedom — and that often leads to inconsistent design and complex setups. WickedCMS takes a different approach:
+
+- 🎨 **Themes define structure and styling**
+- 🧩 **Components define content blocks**
+- ⚖️ **Users configure within constraints — not from scratch**
+
+> You don't build the design — you choose and shape it.
+
+---
+
+## ⚙️ Tech Stack
+
+![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+---
+
+## 🚀 Current Features
+
+### 🎨 Cards Theme *(Initial Implementation)*
+- Responsive card-based layout
+- Clean, consistent UI structure
+- Built as a foundation for future themes
+
+### 🧩 Component-Based Architecture
+- Modular components like `WickedCMS` and `WickedCMSPost`
+- Designed for reusability and extension
+
+### ⚡ Fast Development Experience
+- Instant reloads with Vite
+- Utility-first styling with Tailwind
+
+### 📱 Responsive by Default
+- Works across all screen sizes without extra configuration
+
+### 📝 Demo Content
+- Static content via `storage.ts` for rapid prototyping
+
+---
+
+## 🧪 Getting Started
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🎨 How Themes Work
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+In WickedCMS, themes are not just visual layers — they define how content is structured and rendered.
+
+Each theme controls:
+
+| Concern | Examples |
+|---|---|
+| **Layout** | grid, stacking, spacing |
+| **Visual style** | colors, borders, radius |
+| **Content structure** | what a "card" includes |
+
+Instead of allowing full freedom, themes expose **controlled configuration options**, such as:
+
+- Number of columns
+- Visibility of content (image, text, etc.)
+- Predefined style variations
+
+This approach ensures **consistent design**, **predictable behavior**, and **faster development**.
+
+> Themes act as a constraint system — not just a styling layer.
+
+---
+
+## 🧱 Project Philosophy
+
+WickedCMS is built on a few key principles:
+
+- **Controlled flexibility** → avoid design chaos
+- **Clear structure** → easier to scale and maintain
+- **Theme consistency** → better UX by default
+
+---
+
+## 🔮 Roadmap
+
+Planned directions for the project:
+
+- [ ] Multiple built-in themes
+- [ ] Expanded theme configuration system
+- [ ] Better content modeling
+- [ ] Persistence layer (API / database)
+- [ ] Improved developer experience
+
+---
+
+## 🤝 Contributing
+
+The project is in an early phase, but feedback, ideas, and discussions are welcome.
+
+---
+
+## 📌 Notes
+
+This is a learning-driven project focused on exploring:
+
+- Frontend architecture
+- Design systems
+- Theme-driven UI development
