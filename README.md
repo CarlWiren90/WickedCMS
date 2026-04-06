@@ -43,28 +43,81 @@ Most CMS platforms give you too much freedom — and that often leads to inconsi
 
 ## 🚀 Current Features
 
-### 🎨 Cards Theme *(Initial Implementation)*
+### 🎨 Cards Theme
+
 - Responsive card-based layout
 - Clean, consistent UI structure
-- Built as a foundation for future themes
+- Single source of truth in `themes.ts` — theme keys are derived from the map, not duplicated
+- Runtime-safe theme resolver with automatic fallback to the default theme
+
+### 🃏 Card Layout Presets (`cardLayout`)
+
+Controls how content is arranged inside each card.
+
+| Value     | Description                                               |
+| --------- | --------------------------------------------------------- |
+| `default` | Vertical card — image on top, heading and text below      |
+| `poster`  | Square card — image fills the full card, heading overlaid |
+
+### 🖼️ Poster Heading Styles (`posterHeadingStyle`)
+
+Only applies when `cardLayout="poster"`. Controls how the title is displayed over the image.
+
+| Value            | Description                                       |
+| ---------------- | ------------------------------------------------- |
+| `gradientBottom` | Title in a bottom gradient overlay                |
+| `badgeTopLeft`   | Title in a compact blurred badge, pinned top-left |
+
+### 📐 Card Sizes (`cardSize`)
+
+Controls the max-width of each card.
+
+| Value    | Max Width |
+| -------- | --------- |
+| `small`  | ~20rem    |
+| `medium` | ~31rem    |
+| `large`  | ~42rem    |
+
+### 🔤 Tone (`tone`)
+
+Controls the font family applied to the card. Each tone loads a distinct Google Font.
+
+| Value     | Font    | Feel                  |
+| --------- | ------- | --------------------- |
+| `modern`  | Manrope | Clean and geometric   |
+| `classic` | Lora    | Editorial and refined |
+| `playful` | Fredoka | Friendly and rounded  |
+
+### 🌑 Shadow (`shadow`)
+
+| Value    | Description        |
+| -------- | ------------------ |
+| `shadow` | Subtle drop shadow |
+| `none`   | No shadow          |
 
 ### 🧩 Component-Based Architecture
-- Modular components like `WickedCMS` and `WickedCMSPost`
+
+- Modular components: `WickedCMS` (container) and `WickedCMSPost` (card)
+- Props flow from the top-level `WickedCMS` component down to each post card
 - Designed for reusability and extension
 
 ### ⚡ Fast Development Experience
+
 - Instant reloads with Vite
 - Utility-first styling with Tailwind
 
 ### 📱 Responsive by Default
+
 - Works across all screen sizes without extra configuration
 
 ### 📝 Demo Content
+
 - Static content via `storage.ts` for rapid prototyping
 
 ---
 
 ## 🧪 Getting Started
+
 ```bash
 npm install
 npm run dev
@@ -78,21 +131,33 @@ In WickedCMS, themes are not just visual layers — they define how content is s
 
 Each theme controls:
 
-| Concern | Examples |
-|---|---|
-| **Layout** | grid, stacking, spacing |
-| **Visual style** | colors, borders, radius |
-| **Content structure** | what a "card" includes |
+| Concern               | Examples                                   |
+| --------------------- | ------------------------------------------ |
+| **Layout**            | card layout, spacing, container structure  |
+| **Visual style**      | colors, shadows, typography                |
+| **Content structure** | what a card includes and how it's arranged |
 
-Instead of allowing full freedom, themes expose **controlled configuration options**, such as:
+Instead of allowing full freedom, themes expose **controlled preset options** — users configure within constraints, not from scratch.
 
-- Number of columns
-- Visibility of content (image, text, etc.)
-- Predefined style variations
+All theme classes live in `themes.ts`. The `ThemeType` is derived directly from the theme map's keys, so adding a new theme automatically extends the type.
 
-This approach ensures **consistent design**, **predictable behavior**, and **faster development**.
+The `getThemeConfig()` resolver provides a runtime-safe fallback to the default theme if an invalid key is passed.
 
 > Themes act as a constraint system — not just a styling layer.
+
+### Usage Example
+
+```tsx
+<WickedCMS
+  theme="cards"
+  cardLayout="poster"
+  posterHeadingStyle="gradientBottom"
+  cardSize="medium"
+  tone="modern"
+  shadow="shadow"
+  content={content}
+/>
+```
 
 ---
 
@@ -110,8 +175,16 @@ WickedCMS is built on a few key principles:
 
 Planned directions for the project:
 
+- [x] Cards theme — initial implementation
+- [x] Card layout presets (`default`, `poster`)
+- [x] Poster heading style presets (`gradientBottom`, `badgeTopLeft`)
+- [x] Card size options (`small`, `medium`, `large`)
+- [x] Tone / font presets (`modern`, `classic`, `playful`)
+- [x] Shadow control
+- [x] Derived `ThemeType` from theme map (single source of truth)
+- [x] Runtime-safe theme resolver with fallback
+- [ ] More card layout variants
 - [ ] Multiple built-in themes
-- [ ] Expanded theme configuration system
 - [ ] Better content modeling
 - [ ] Persistence layer (API / database)
 - [ ] Improved developer experience

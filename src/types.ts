@@ -5,9 +5,21 @@ export type PostType = {
   containImage?: boolean;
   containCTA?: boolean;
   useRoundedCorners?: boolean;
-  stackContent?: "vertical" | "horizontal";
+  cardLayout?: "default" | "poster";
+  posterHeadingStyle?: "gradientBottom" | "badgeTopLeft";
+  tone?: "modern" | "classic" | "playful";
+  readMore?: "active" | "inactive";
+  cardSize?: "small" | "medium" | "large";
 };
 
-export type ThemeType = "cards";
+export type ThemeType = keyof typeof import("./themes/themes").themeClasses;
 
-export type StackContentType = "vertical" | "horizontal";
+export type CardLayoutType = "default" | "poster";
+
+export type PosterHeadingStyleType = "gradientBottom" | "badgeTopLeft";
+
+export type ToneType = "modern" | "classic" | "playful";
+
+export type ShadowType = "shadow" | "none";
+
+export type CardSizeType = "small" | "medium" | "large";
