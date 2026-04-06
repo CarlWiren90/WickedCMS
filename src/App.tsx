@@ -7,7 +7,7 @@ function App() {
     <>
       <WickedCMS
         theme="cards"
-        cardLayout="default"
+        cardLayout="poster"
         posterHeadingStyle="badgeTopLeft"
         tone="modern"
         shadow="shadow"
