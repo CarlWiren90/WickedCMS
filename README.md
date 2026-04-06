@@ -43,28 +43,34 @@ Most CMS platforms give you too much freedom — and that often leads to inconsi
 
 ## 🚀 Current Features
 
-### 🎨 Cards Theme *(Initial Implementation)*
+### 🎨 Cards Theme _(Initial Implementation)_
+
 - Responsive card-based layout
 - Clean, consistent UI structure
 - Built as a foundation for future themes
 
 ### 🧩 Component-Based Architecture
+
 - Modular components like `WickedCMS` and `WickedCMSPost`
 - Designed for reusability and extension
 
 ### ⚡ Fast Development Experience
+
 - Instant reloads with Vite
 - Utility-first styling with Tailwind
 
 ### 📱 Responsive by Default
+
 - Works across all screen sizes without extra configuration
 
 ### 📝 Demo Content
+
 - Static content via `storage.ts` for rapid prototyping
 
 ---
 
 ## 🧪 Getting Started
+
 ```bash
 npm install
 npm run dev
@@ -78,11 +84,11 @@ In WickedCMS, themes are not just visual layers — they define how content is s
 
 Each theme controls:
 
-| Concern | Examples |
-|---|---|
-| **Layout** | grid, stacking, spacing |
-| **Visual style** | colors, borders, radius |
-| **Content structure** | what a "card" includes |
+| Concern               | Examples                |
+| --------------------- | ----------------------- |
+| **Layout**            | grid, stacking, spacing |
+| **Visual style**      | colors, borders, radius |
+| **Content structure** | what a "card" includes  |
 
 Instead of allowing full freedom, themes expose **controlled configuration options**, such as:
 

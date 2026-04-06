@@ -5,7 +5,15 @@ import { content } from "./utils/storage";
 function App() {
   return (
     <>
-      <WickedCMS theme="cards" stackContent="vertical" content={content} />
+      <WickedCMS
+        theme="cards"
+        cardLayout="default"
+        posterHeadingStyle="badgeTopLeft"
+        tone="modern"
+        shadow="shadow"
+        cardSize="medium"
+        content={content}
+      />
     </>
   );
 }

@@ -1,26 +1,50 @@
-import type { PostType } from "./types";
-import type { ThemeType } from "./types";
-import type { StackContentType } from "./types";
+import type {
+  PostType,
+  ThemeType,
+  CardLayoutType,
+  PosterHeadingStyleType,
+  ToneType,
+  ShadowType,
+  CardSizeType,
+} from "./types";
 import WickedCMSPost from "./components/WickedCMSPost";
-import { themeClasses } from "./themes/themes";
+import { getThemeConfig } from "./themes/themes";
 import { cn } from "./utils/cn";
 
 interface IWickedCMS {
   content: PostType[];
   theme: ThemeType;
-  stackContent?: StackContentType;
+  cardLayout?: CardLayoutType;
+  posterHeadingStyle?: PosterHeadingStyleType;
+  tone?: ToneType;
+  shadow?: ShadowType;
+  cardSize?: CardSizeType;
 }
 
-const WickedCMS = ({ content, theme, stackContent }: IWickedCMS) => {
+const WickedCMS = ({
+  content,
+  theme,
+  cardLayout,
+  posterHeadingStyle,
+  tone,
+  shadow,
+  cardSize,
+}: IWickedCMS) => {
+  const themeConfig = getThemeConfig(theme);
+
   return (
-    <section className={cn(themeClasses[theme].parentContainerLayout.layout)}>
+    <section className={cn(themeConfig.container)}>
       {content.map((post) => {
         const { title, text, imageUrl } = post;
         return (
           <WickedCMSPost
             theme={theme}
-            stackContent={stackContent}
+            cardLayout={cardLayout}
+            posterHeadingStyle={posterHeadingStyle}
+            tone={tone}
             post={{ title, text, imageUrl }}
+            shadow={shadow}
+            cardSize={cardSize}
           />
         );
       })}
